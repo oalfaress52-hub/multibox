@@ -5,6 +5,8 @@
   <title>Voxel Engine</title>
   <script src="https://cdn.babylonjs.com/babylon.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <!-- Pixel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -37,19 +39,21 @@
     <div id="mainPanel">
       <h2 id="serverName">
         Select a server
-        <img id="serverIcon" src="assets/survival.png" alt="Server Icon" style="display:none; width:24px; height:24px; margin-left:8px; vertical-align:middle;">
+        <img id="serverIcon" src="assets/survival.png" alt="Server Icon" style="display:none;">
       </h2>
       <p id="serverType"></p>
 
+      <!-- Invite code first -->
+      <label for="inviteInput">Invite Code:</label>
+      <input type="text" id="inviteInput" maxlength="8" placeholder="Enter invite code">
+      <p id="inviteError"></p>
+
+      <!-- Username & password -->
       <label for="username">Username:</label>
-      <input type="text" id="username">
+      <input type="text" id="username" placeholder="Enter username">
 
       <label for="password">Password:</label>
-      <input type="password" id="password">
-
-      <label for="inviteInput">Invite Code:</label>
-      <input type="text" id="inviteInput" maxlength="8">
-      <p id="inviteError" style="color:red; font-size:13px; display:none; margin-top:4px;"></p>
+      <input type="password" id="password" placeholder="Enter password">
 
       <button id="playButton">Play</button>
     </div>
@@ -60,6 +64,5 @@
 
   <!-- Scripts -->
   <script src="app.js"></script>
-  <script type="module" src="../src/main.js"></script>
 </body>
 </html>

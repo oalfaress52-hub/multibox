@@ -3,9 +3,10 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive; /* Pixel/gaming font */
     overflow: hidden;
-    background-color: #e6f2ff;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 /* ===== BABYLON CANVAS ===== */
@@ -16,7 +17,6 @@ canvas#renderCanvas {
     width: 100%;
     height: 100%;
     z-index: 0;
-    display: block;
 }
 
 /* ===== TABS ===== */
@@ -26,8 +26,8 @@ canvas#renderCanvas {
     left: 0;
     width: 100%;
     display: flex;
-    background-color: #cce6ff;
-    border-bottom: 2px solid #3399ff;
+    background-color: #0d0d0d;
+    border-bottom: 3px solid #00ccff;
     z-index: 10;
 }
 
@@ -35,17 +35,17 @@ canvas#renderCanvas {
     padding: 12px 20px;
     cursor: pointer;
     font-weight: bold;
-    color: #2277cc;
+    color: #00ccff;
     transition: background 0.2s;
 }
 
 #tabs .tab:hover {
-    background-color: #b3d9ff;
+    background-color: #00334d;
 }
 
 #tabs .tab.active {
-    border-bottom: 3px solid #0055aa;
-    color: #0055aa;
+    border-bottom: 3px solid #00ffcc;
+    color: #00ffcc;
 }
 
 /* ===== SEARCH BAR ===== */
@@ -55,8 +55,8 @@ canvas#renderCanvas {
     left: 0;
     width: 100%;
     padding: 10px 20px;
-    background-color: #d9ecff;
-    border-bottom: 1px solid #b3d9ff;
+    background-color: #0d0d0d;
+    border-bottom: 1px solid #00334d;
     z-index: 9;
     box-sizing: border-box;
 }
@@ -65,16 +65,17 @@ canvas#renderCanvas {
     width: 100%;
     max-width: 400px;
     padding: 10px 14px;
-    font-size: 14px;
-    border-radius: 20px;
-    border: 1px solid #99ccff;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid #00ccff;
     outline: none;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 #serverSearch:focus {
-    border-color: #3399ff;
-    box-shadow: 0 0 6px rgba(51, 153, 255, 0.4);
+    border-color: #00ffcc;
+    box-shadow: 0 0 6px rgba(0, 255, 204, 0.5);
 }
 
 /* ===== UI CONTAINER ===== */
@@ -91,10 +92,10 @@ canvas#renderCanvas {
 /* ===== SIDEBAR ===== */
 #sidebar {
     width: 220px;
-    background-color: #e6f2ff;
+    background-color: #0d0d0d;
     padding: 10px;
     overflow-y: auto;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #00334d;
 }
 
 #serverList {
@@ -111,10 +112,11 @@ canvas#renderCanvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: #1a1a1a;
 }
 
 #serverList li:hover {
-    background-color: #b3d9ff;
+    background-color: #00334d;
 }
 
 #serverList img {
@@ -127,16 +129,17 @@ canvas#renderCanvas {
 #mainPanel {
     flex: 1;
     padding: 25px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(10,10,10,0.95);
     margin-left: 10px;
     border-radius: 6px;
 }
 
+/* Server title */
 #serverName {
     display: flex;
     align-items: center;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 #serverIcon {
@@ -146,46 +149,51 @@ canvas#renderCanvas {
     display: none;
 }
 
-/* Input fields and labels */
+/* Input fields */
 #mainPanel label {
     display: block;
-    margin: 12px 0 6px 0;
+    margin: 12px 0 4px 0;
+    font-size: 10px;
 }
 
 #mainPanel input {
     width: 100%;
-    padding: 7px;
-    margin-bottom: 10px;
+    padding: 8px;
+    margin-bottom: 6px;
     border-radius: 5px;
-    border: 1px solid #99ccff;
+    border: 1px solid #00ccff;
     outline: none;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    font-size: 10px;
 }
 
 #mainPanel input:focus {
-    border-color: #3399ff;
-    box-shadow: 0 0 6px rgba(51, 153, 255, 0.3);
+    border-color: #00ffcc;
+    box-shadow: 0 0 6px rgba(0, 255, 204, 0.5);
 }
 
 /* Invite error */
 #inviteError {
-    color: red;
-    font-size: 13px;
+    color: #ff3333;
+    font-size: 8px;
     display: none;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 /* Play button */
 #playButton {
     margin-top: 12px;
     padding: 10px 24px;
-    background-color: #3399ff;
+    background-color: #00ccff;
     border: none;
     border-radius: 6px;
-    color: white;
+    color: #0d0d0d;
     cursor: pointer;
     transition: background 0.2s;
+    font-size: 10px;
 }
 
 #playButton:hover {
-    background-color: #2277cc;
+    background-color: #00ffcc;
 }
