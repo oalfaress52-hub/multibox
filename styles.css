@@ -6,7 +6,7 @@ html, body {
     font-family: 'Press Start 2P', cursive; /* Pixel font only */
     overflow: hidden;
     background-color: #1a1a1a;
-    color: #f0f0f0;
+    color: #e0f7ff;
 }
 
 /* ===== BABYLON CANVAS ===== */
@@ -27,7 +27,7 @@ canvas#renderCanvas {
     width: 100%;
     display: flex;
     background-color: #0d0d0d;
-    border-bottom: 3px solid #00ccff;
+    border-bottom: 3px solid #33ccff;
     z-index: 10;
 }
 
@@ -35,7 +35,7 @@ canvas#renderCanvas {
     padding: 12px 20px;
     cursor: pointer;
     font-weight: bold;
-    color: #00ccff;
+    color: #33ccff;
     transition: background 0.2s;
 }
 
@@ -44,8 +44,8 @@ canvas#renderCanvas {
 }
 
 #tabs .tab.active {
-    border-bottom: 3px solid #00ffcc;
-    color: #00ffcc;
+    border-bottom: 3px solid #66f0ff;
+    color: #66f0ff;
 }
 
 /* ===== SEARCH BAR ===== */
@@ -67,15 +67,15 @@ canvas#renderCanvas {
     padding: 10px 14px;
     font-size: 12px;
     border-radius: 8px;
-    border: 1px solid #00ccff;
+    border: 1px solid #33ccff;
     outline: none;
     background-color: #1a1a1a;
-    color: #f0f0f0;
+    color: #e0f7ff;
 }
 
 #serverSearch:focus {
-    border-color: #00ffcc;
-    box-shadow: 0 0 6px rgba(0, 255, 204, 0.5);
+    border-color: #66f0ff;
+    box-shadow: 0 0 6px rgba(102, 240, 255, 0.5);
 }
 
 /* ===== UI CONTAINER ===== */
@@ -87,6 +87,18 @@ canvas#renderCanvas {
     width: 100%;
     height: calc(100% - 100px);
     z-index: 5;
+}
+
+/* ===== TAB PANELS ===== */
+.tabPanel {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+.tabPanel.active {
+    display: flex;
 }
 
 /* ===== SIDEBAR ===== */
@@ -113,6 +125,7 @@ canvas#renderCanvas {
     align-items: center;
     justify-content: space-between;
     background-color: #1a1a1a;
+    color: #e0f7ff;
 }
 
 #serverList li:hover {
@@ -134,12 +147,15 @@ canvas#renderCanvas {
     border-radius: 6px;
 }
 
-/* Server title */
-#serverName {
+/* Server header */
+#serverHeader {
     display: flex;
     align-items: center;
-    font-size: 14px;
     margin-bottom: 10px;
+}
+
+#serverName {
+    font-size: 14px;
 }
 
 #serverIcon {
@@ -147,6 +163,17 @@ canvas#renderCanvas {
     height: 26px;
     margin-left: 10px;
     display: none;
+}
+
+#serverType {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.inviteDisplay {
+    font-size: 12px;
+    color: #33ccff;
+    margin-bottom: 8px;
 }
 
 /* Input fields */
@@ -161,16 +188,16 @@ canvas#renderCanvas {
     padding: 8px;
     margin-bottom: 6px;
     border-radius: 5px;
-    border: 1px solid #00ccff;
+    border: 1px solid #33ccff;
     outline: none;
     background-color: #1a1a1a;
-    color: #f0f0f0;
+    color: #e0f7ff;
     font-size: 10px;
 }
 
 #mainPanel input:focus {
-    border-color: #00ffcc;
-    box-shadow: 0 0 6px rgba(0, 255, 204, 0.5);
+    border-color: #66f0ff;
+    box-shadow: 0 0 6px rgba(102, 240, 255, 0.5);
 }
 
 /* Invite error */
@@ -185,7 +212,7 @@ canvas#renderCanvas {
 #playButton {
     margin-top: 12px;
     padding: 10px 24px;
-    background-color: #00ccff;
+    background-color: #33ccff;
     border: none;
     border-radius: 6px;
     color: #0d0d0d;
@@ -195,5 +222,12 @@ canvas#renderCanvas {
 }
 
 #playButton:hover {
-    background-color: #00ffcc;
+    background-color: #66f0ff;
+}
+
+/* ===== YOUR SERVERS PANEL ===== */
+#yourserversPanel {
+    padding: 20px;
+    color: #33ccff;
+    font-size: 12px;
 }

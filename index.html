@@ -5,63 +5,69 @@
   <title>Voxel Engine</title>
   <script src="https://cdn.babylonjs.com/babylon.js"></script>
   <link rel="stylesheet" href="styles.css">
-  <!-- Pixel font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Top Tabs -->
   <div id="tabs">
-    <div class="tab" data-tab="singleplayer">Singleplayer</div>
-    <div class="tab active" data-tab="multiplayer">Multiplayer</div>
-    <div class="tab" data-tab="settings">Settings</div>
+    <div class="tab active" data-tab="singleplayer">Singleplayer</div>
+    <div class="tab" data-tab="multiplayer">Multiplayer</div>
+    <div class="tab" data-tab="yourservers">Your Servers</div>
   </div>
 
   <!-- Search Bar -->
   <div id="searchBarContainer">
-    <input 
-      type="text" 
-      id="serverSearch" 
-      placeholder="Search servers..."
-    />
+    <input type="text" id="serverSearch" placeholder="Search servers..." />
   </div>
 
   <!-- UI Container -->
   <div id="uiContainer">
-    <!-- Sidebar -->
-    <div id="sidebar">
-      <ul id="serverList">
-        <!-- Servers populated by JS -->
-      </ul>
+
+    <!-- SINGLEPLAYER TAB -->
+    <div class="tabPanel active" id="singleplayerPanel">
+      <div id="mainPanel">
+        <h2>Singleplayer</h2>
+        <p>Select or create a world to play solo.</p>
+      </div>
     </div>
 
-    <!-- Main Panel -->
-    <div id="mainPanel">
-      <h2 id="serverName">
-        Select a server
-        <img id="serverIcon" src="assets/survival.png" alt="Server Icon" style="display:none;">
-      </h2>
-      <p id="serverType"></p>
+    <!-- MULTIPLAYER TAB -->
+    <div class="tabPanel" id="multiplayerPanel">
+      <div id="sidebar">
+        <ul id="serverList"></ul>
+      </div>
+      <div id="mainPanel">
+        <div id="serverHeader">
+          <h2 id="serverName">Select a server</h2>
+          <img id="serverIcon" src="" alt="Server Icon">
+        </div>
+        <p id="serverType"></p>
+        <p class="inviteDisplay" id="inviteDisplay"></p>
 
-      <!-- Invite code input on top -->
-      <label for="inviteInput">Invite Code:</label>
-      <input type="text" id="inviteInput" maxlength="8" placeholder="Enter invite code">
-      <p id="inviteError"></p>
+        <label for="inviteInput">Invite Code:</label>
+        <input type="text" id="inviteInput" maxlength="8" placeholder="Enter invite code">
+        <p id="inviteError"></p>
 
-      <label for="username">Username:</label>
-      <input type="text" id="username" placeholder="Enter username">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" placeholder="Enter password">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
 
-      <button id="playButton">Play</button>
+        <button id="playButton">Play</button>
+      </div>
     </div>
+
+    <!-- YOUR SERVERS TAB -->
+    <div class="tabPanel" id="yourserversPanel">
+      <h2>Your Servers</h2>
+      <p>List of servers you have joined or own will appear here.</p>
+    </div>
+
   </div>
 
-  <!-- Babylon.js Canvas -->
   <canvas id="renderCanvas"></canvas>
-
-  <!-- Scripts -->
   <script src="app.js"></script>
 </body>
 </html>
