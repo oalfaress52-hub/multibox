@@ -1,122 +1,149 @@
 /* Global */
 html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  overflow: hidden; /* prevents scrolling */
-  background-color: #e6f2ff; /* light blue for long gameplay */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: #e6f2ff;
 }
 
 /* Babylon canvas */
 canvas#renderCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
 }
 
-/* Tabs at the top */
+/* Tabs */
 #tabs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  background-color: #cce6ff;
-  border-bottom: 2px solid #3399ff;
-  z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background-color: #cce6ff;
+    border-bottom: 2px solid #3399ff;
+    z-index: 10;
 }
 
-#tabs .tab {
-  padding: 12px 20px;
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-weight: bold;
-  color: #2277cc;
-  transition: background 0.2s;
+    #tabs .tab {
+        padding: 12px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #2277cc;
+        transition: background 0.2s;
+    }
+
+        #tabs .tab:hover {
+            background-color: #b3d9ff;
+        }
+
+        #tabs .tab.active {
+            border-bottom: 3px solid #0055aa;
+            color: #0055aa;
+        }
+
+/* Search Bar */
+#searchBarContainer {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #d9ecff;
+    border-bottom: 1px solid #b3d9ff;
+    z-index: 9;
+    box-sizing: border-box;
 }
 
-#tabs .tab:hover {
-  background-color: #b3d9ff;
+#serverSearch {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #99ccff;
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-#tabs .tab.active {
-  border-bottom: 3px solid #0055aa;
-  color: #0055aa;
-}
+    #serverSearch:focus {
+        border-color: #3399ff;
+        box-shadow: 0 0 6px rgba(51, 153, 255, 0.4);
+    }
 
-/* UI container below tabs */
+/* UI Container */
 #uiContainer {
-  position: absolute;
-  top: 50px; /* below tabs */
-  left: 0;
-  display: flex;
-  width: 100%;
-  height: calc(100% - 50px);
-  z-index: 5;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: calc(100% - 100px);
+    z-index: 5;
 }
 
 /* Sidebar */
 #sidebar {
-  width: 200px;
-  background-color: #e6f2ff;
-  padding: 10px;
-  overflow-y: auto;
-  border-right: 1px solid #aaa;
+    width: 200px;
+    background-color: #e6f2ff;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 1px solid #aaa;
 }
 
 #serverList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-#serverList li {
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
+    #serverList li {
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
 
-#serverList li:hover {
-  background-color: #b3d9ff;
-}
+        #serverList li:hover {
+            background-color: #b3d9ff;
+        }
 
-/* Main panel */
+/* Main Panel */
 #mainPanel {
-  flex: 1;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* slightly transparent over canvas */
-  margin-left: 10px;
-  border-radius: 5px;
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-left: 10px;
+    border-radius: 5px;
 }
 
-#mainPanel label {
-  display: block;
-  margin: 8px 0;
-}
+    #mainPanel label {
+        display: block;
+        margin: 8px 0;
+    }
 
-#mainPanel input {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
+    #mainPanel input {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
 
 #playButton {
-  margin-top: 10px;
-  padding: 8px 20px;
-  background-color: #3399ff;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: #3399ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
 }
 
-#playButton:hover {
-  background-color: #2277cc;
-}
+    #playButton:hover {
+        background-color: #2277cc;
+    }
