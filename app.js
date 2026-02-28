@@ -1,8 +1,8 @@
 // ===== SERVER DATA =====
 const servers = [
-  { name: "Testing MultiBox", type: "Private (invite only)", inviteCode: "AbCdEfGh" },
-  { name: "Creative World", type: "Public", inviteCode: "XyZaBcDe" },
-  { name: "Survival Realm", type: "Public", inviteCode: "MnOpQrSt" }
+  { name: "Testing MultiBox", type: "Private (invite only)", inviteCode: "G7kP2fX9" },
+  { name: "Creative World", type: "Public", inviteCode: "Qw8Tz5Lm" },
+  { name: "Survival Realm", type: "Public", inviteCode: "R2bV6nKy" }
 ];
 
 // ===== DOM =====
