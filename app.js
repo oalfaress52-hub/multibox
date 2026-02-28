@@ -5,7 +5,7 @@ const servers = [
   { name: "Survival Realm", type: "Public", inviteCode: "MnOpQrSt" }
 ];
 
-// ===== DOM REFERENCES =====
+// ===== DOM =====
 const serverList = document.getElementById("serverList");
 const serverName = document.getElementById("serverName");
 const serverType = document.getElementById("serverType");
@@ -17,7 +17,6 @@ const passwordInput = document.getElementById("password");
 const inviteInput = document.getElementById("inviteInput");
 const inviteError = document.getElementById("inviteError");
 const serverSearch = document.getElementById("serverSearch");
-
 const tabs = document.querySelectorAll(".tab");
 const tabPanels = document.querySelectorAll(".tabPanel");
 
@@ -26,8 +25,7 @@ tabs.forEach(tab => {
   tab.addEventListener("click", () => {
     tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
-
-    const selected = tab.getAttribute("data-tab");
+    const selected = tab.dataset.tab;
     tabPanels.forEach(panel => {
       if(panel.id === selected + "Panel") {
         panel.classList.add("active");
@@ -40,11 +38,10 @@ tabs.forEach(tab => {
   });
 });
 
-// ===== POPULATE SERVER SIDEBAR =====
+// ===== POPULATE SERVERS =====
 function loadServers(filter = "") {
   serverList.innerHTML = "";
   const input = filter.trim().toLowerCase();
-
   const exactMatch = servers.find(s => s.inviteCode.toLowerCase() === input);
   const filteredServers = exactMatch ? [exactMatch] :
     servers.filter(s => s.name.toLowerCase().includes(input));
@@ -62,7 +59,7 @@ function loadServers(filter = "") {
     serverList.appendChild(li);
   });
 
-  if (filteredServers.length === 0) {
+  if(filteredServers.length === 0) {
     const li = document.createElement("li");
     li.textContent = "No servers found";
     li.style.opacity = "0.6";
@@ -90,14 +87,14 @@ playButton.addEventListener("click", () => {
   const password = passwordInput.value.trim();
   const code = inviteInput.value.trim();
 
-  if (!code) {
+  if(!code) {
     inviteError.textContent = "Please enter an invite code.";
     inviteError.style.display = "block";
     return;
   }
 
   const matchedServer = servers.find(s => s.inviteCode.toLowerCase() === code.toLowerCase());
-  if (!matchedServer) {
+  if(!matchedServer) {
     inviteError.textContent = "Invalid invite code!";
     inviteError.style.display = "block";
     return;
@@ -105,7 +102,7 @@ playButton.addEventListener("click", () => {
 
   inviteError.style.display = "none";
 
-  if (!username || !password) {
+  if(!username || !password) {
     alert("Please enter username and password.");
     return;
   }

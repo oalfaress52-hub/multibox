@@ -17,8 +17,7 @@
   </div>
 
   <div id="uiContainer">
-
-    <!-- SINGLEPLAYER TAB -->
+    <!-- SINGLEPLAYER -->
     <div class="tabPanel active" id="singleplayerPanel">
       <div class="mainPanel">
         <h2>Singleplayer</h2>
@@ -26,9 +25,10 @@
       </div>
     </div>
 
-    <!-- MULTIPLAYER TAB -->
+    <!-- MULTIPLAYER -->
     <div class="tabPanel" id="multiplayerPanel">
       <div id="sidebar">
+        <input type="text" id="serverSearch" placeholder="Search servers...">
         <ul id="serverList"></ul>
       </div>
       <div class="mainPanel">
@@ -53,14 +53,13 @@
       </div>
     </div>
 
-    <!-- YOUR SERVERS TAB -->
+    <!-- YOUR SERVERS -->
     <div class="tabPanel" id="yourserversPanel">
       <div class="mainPanel">
         <h2>Your Servers</h2>
         <p>Servers you’ve joined or own will appear here.</p>
       </div>
     </div>
-
   </div>
 
   <canvas id="renderCanvas"></canvas>
