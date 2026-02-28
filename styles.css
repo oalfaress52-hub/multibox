@@ -1,98 +1,101 @@
-/* ===== GLOBAL ===== */
+/* GLOBAL */
 html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    font-family: 'Press Start 2P', cursive;
-    overflow: hidden;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+  width: 100%; height: 100%; margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  overflow: hidden;
 }
 
-/* ===== TABS ===== */
+/* TABS */
 #tabs {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    background-color: #0d0d0d;
-    border-bottom: 3px solid #00ccff;
-    z-index: 10;
+  display: flex;
+  background-color: #0d0d0d;
+  border-bottom: 3px solid #00ccff;
 }
-#tabs .tab { padding: 12px 20px; cursor: pointer; color: #00ccff; font-weight: bold; transition: background 0.2s; }
-#tabs .tab.active { border-bottom: 3px solid #00ffcc; color: #00ffcc; }
+#tabs .tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #00ccff;
+  font-weight: bold;
+  transition: background 0.2s;
+}
 #tabs .tab:hover { background-color: #00334d; }
+#tabs .tab.active { border-bottom: 3px solid #00ffcc; color: #00ffcc; }
 
-/* ===== TAB PANELS ===== */
+/* TAB PANELS */
 .tabPanel { display: none; padding: 20px; width: 100%; height: calc(100% - 50px); box-sizing: border-box; }
 .tabPanel.active { display: flex; justify-content: center; align-items: center; }
 
-/* ===== SINGLEPLAYER UI ===== */
+/* SINGLEPLAYER CONTAINER */
 #singleplayerContainer {
-    display: flex;
-    width: 80%;
-    height: 80%;
-    gap: 20px;
+  display: flex;
+  width: 80%;
+  height: 80%;
+  gap: 20px;
 }
 
-/* World List Board */
+/* WORLD LIST BOARD */
 #worldListBoard {
-    flex: 1;
-    background-color: rgba(10,10,10,0.9);
-    border-radius: 8px;
-    padding: 15px;
-    overflow-y: auto;
+  flex: 1;
+  background-color: rgba(10,10,10,0.9);
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
 }
-#worldList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+#worldList { list-style: none; margin: 0; padding: 0; }
 #worldList li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 6px;
-    background-color: #1a1a1a;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 #worldList li:hover { background-color: #00334d; }
 #worldList img { width: 16px; height: 16px; margin-left: 5px; }
 
-/* World Info Board */
+/* WORLD INFO BOARD */
 #worldInfoBoard {
-    flex: 1;
-    background-color: rgba(10,10,10,0.95);
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  flex: 1;
+  background-color: rgba(10,10,10,0.95);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-#worldName { font-size: 14px; }
-#powerStatus {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 10px 0;
-    background-color: red; /* default off */
+#worldName { font-size: 14px; text-align: center; }
+
+/* POWER BUTTON */
+#powerButton {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #0d0d0d;
+  font-size: 10px;
+  transition: background 0.2s;
 }
 .powerOff { background-color: red; }
 .powerInactive { background-color: yellow; }
 .powerOn { background-color: green; }
+#powerButton:hover { opacity: 0.8; }
 
+/* PLAY BUTTON */
 #playWorldButton {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    background-color: #00ccff;
-    color: #0d0d0d;
-    cursor: pointer;
-    font-size: 10px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00ccff;
+  color: #0d0d0d;
+  cursor: pointer;
+  font-size: 10px;
 }
 #playWorldButton:hover { background-color: #00ffcc; }

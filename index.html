@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Voxel Engine</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -15,34 +15,33 @@
     <div class="tab" data-tab="yourServers">Your Servers</div>
   </div>
 
-  <!-- Singleplayer Panel -->
+  <!-- SINGLEPLAYER PANEL -->
   <div class="tabPanel active" id="singleplayerPanel">
     <div id="singleplayerContainer">
-      <!-- World List -->
+      
+      <!-- LEFT: World List -->
       <div id="worldListBoard">
-        <ul id="worldList">
-          <!-- Worlds populated by JS -->
-        </ul>
+        <ul id="worldList"></ul>
       </div>
 
-      <!-- World Info & Power -->
+      <!-- RIGHT: World Info -->
       <div id="worldInfoBoard">
         <h2 id="worldName">Select a World</h2>
-        <div id="powerStatus" class="powerOff"></div>
+        <button id="powerButton" class="powerOff">Power</button>
         <button id="playWorldButton">Play</button>
       </div>
+
     </div>
   </div>
 
-  <!-- Multiplayer Panel -->
+  <!-- MULTIPLAYER PANEL -->
   <div class="tabPanel" id="multiplayerPanel">
-    <!-- Multiplayer UI will remain here -->
-    <!-- Copy your existing multiplayer layout -->
+    <!-- Multiplayer UI will go here -->
   </div>
 
-  <!-- Your Servers Panel -->
+  <!-- YOUR SERVERS PANEL -->
   <div class="tabPanel" id="yourServersPanel">
-    <!-- Can be empty for now or future features -->
+    <!-- Placeholder for future features -->
   </div>
 
   <script src="singleplayer.js"></script>
