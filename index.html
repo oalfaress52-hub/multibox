@@ -15,14 +15,12 @@
     <div class="tab" data-tab="yourservers">Your Servers</div>
   </div>
 
-  <!-- Panels -->
+  <!-- Singleplayer Panel -->
   <div class="tabPanel active" id="singleplayerPanel">
     <div id="singleplayerUI">
-      <!-- World list -->
       <div id="worldListContainer">
         <ul id="worldList"></ul>
       </div>
-      <!-- World info and controls -->
       <div id="worldInfo">
         <h2 id="worldName">Select a world</h2>
         <button id="powerButton" title="Toggle Power"></button>
@@ -31,10 +29,37 @@
     </div>
   </div>
 
+  <!-- Multiplayer Panel -->
   <div class="tabPanel" id="multiplayerPanel">
-    <p style="padding:20px;">Multiplayer UI coming soon.</p>
+    <div id="multiplayerUI">
+      <!-- Search -->
+      <div id="searchBarContainer">
+        <input type="text" id="serverSearch" placeholder="Search servers...">
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <ul id="serverList"></ul>
+      </div>
+      <!-- Main Panel -->
+      <div id="mainPanel">
+        <h2 id="serverName">
+          Select a server
+          <img id="serverIcon" style="display:none;">
+        </h2>
+        <p id="serverType"></p>
+        <label for="inviteInput">Invite Code:</label>
+        <input type="text" id="inviteInput" maxlength="8" placeholder="Enter invite code">
+        <p id="inviteError"></p>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <button id="playButton">Play</button>
+      </div>
+    </div>
   </div>
 
+  <!-- Your Servers Panel -->
   <div class="tabPanel" id="yourserversPanel">
     <p style="padding:20px;">Your Servers UI coming soon.</p>
   </div>

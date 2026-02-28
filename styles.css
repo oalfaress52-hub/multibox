@@ -29,11 +29,7 @@ html, body {
     transition: background 0.2s;
 }
 
-#tabs .tab.active {
-    border-bottom: 3px solid #00ffcc;
-    color: #00ffcc;
-}
-
+#tabs .tab.active { border-bottom: 3px solid #00ffcc; color: #00ffcc; }
 #tabs .tab:hover { background-color: #00334d; }
 
 /* ===== PANELS ===== */
@@ -51,13 +47,8 @@ html, body {
 .tabPanel.active { display: flex; }
 
 /* ===== SINGLEPLAYER UI ===== */
-#singleplayerUI {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
+#singleplayerUI { display: flex; width: 100%; height: 100%; }
 
-/* World list */
 #worldListContainer {
     width: 200px;
     background-color: #0d0d0d;
@@ -81,10 +72,8 @@ html, body {
 }
 
 #worldList li:hover { background-color: #00334d; }
-
 #worldList img { width:16px; height:16px; margin-left:5px; }
 
-/* World info */
 #worldInfo {
     flex: 1;
     padding: 20px;
@@ -96,8 +85,6 @@ html, body {
 }
 
 #worldName { margin-bottom: 15px; font-size: 14px; }
-
-/* Power button */
 #powerButton {
     width: 32px;
     height: 32px;
@@ -108,7 +95,6 @@ html, body {
     margin-bottom: 15px;
 }
 
-/* Play button */
 #playWorldButton {
     padding: 10px 24px;
     background-color: #00ccff;
@@ -119,5 +105,75 @@ html, body {
     font-size: 10px;
     transition: background 0.2s;
 }
-
 #playWorldButton:hover { background-color: #00ffcc; }
+
+/* ===== MULTIPLAYER UI ===== */
+#multiplayerUI { display: flex; width: 100%; height: 100%; }
+
+#searchBarContainer { width: 100%; padding-bottom: 10px; }
+#serverSearch {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #00ccff;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+#serverSearch:focus { border-color: #00ffcc; box-shadow: 0 0 6px rgba(0,255,204,0.5); }
+
+#sidebar {
+    width: 220px;
+    background-color: #0d0d0d;
+    padding: 10px;
+    overflow-y: auto;
+    border-right: 1px solid #00334d;
+}
+
+#serverList { list-style: none; padding:0; margin:0; }
+#serverList li {
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    transition: background 0.2s;
+}
+#serverList li:hover { background-color: #00334d; }
+#serverList img { width:16px; height:16px; margin-left:5px; }
+
+#mainPanel {
+    flex: 1;
+    padding: 20px;
+    margin-left: 10px;
+    border-radius: 6px;
+    background-color: rgba(10,10,10,0.95);
+}
+
+#serverName { display: flex; align-items: center; margin-bottom:10px; }
+#serverIcon { width:26px; height:26px; margin-left:10px; display:none; }
+
+#mainPanel label { display:block; margin:8px 0 4px 0; font-size:10px; }
+#mainPanel input {
+    width:100%; padding:6px; border-radius:5px; border:1px solid #00ccff;
+    outline:none; background-color:#1a1a1a; color:#f0f0f0; font-size:10px;
+}
+#mainPanel input:focus { border-color:#00ffcc; box-shadow:0 0 6px rgba(0,255,204,0.5); }
+
+#inviteError { color:#ff3333; font-size:8px; margin-top:2px; display:none; }
+
+#playButton {
+    margin-top:10px;
+    padding:8px 20px;
+    background-color:#00ccff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:10px;
+}
+#playButton:hover { background-color:#00ffcc; }
