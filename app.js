@@ -34,23 +34,17 @@ function loadServers(filter = "") {
     const li = document.createElement("li");
     li.textContent = server.name;
 
-    // ===== ICON FOR ALL SERVER TYPES =====
+    // ===== MANUAL ICON ASSIGNMENT =====
     const icon = document.createElement("img");
     icon.style.width = "16px";
     icon.style.height = "16px";
 
-    if (server.type.toLowerCase().includes("survival")) {
-      icon.src = "assets/survival.png";
-      icon.alt = "Survival";
-    } else if (server.type.toLowerCase().includes("creative")) {
+    if (server.name === "Creative World") {
       icon.src = "assets/creative.png";
       icon.alt = "Creative";
-    } else if (server.type.toLowerCase().includes("private")) {
-      icon.src = "assets/private.png"; // Add private.png to assets
-      icon.alt = "Private";
-    } else {
-      icon.src = "assets/public.png"; // Add public.png to assets
-      icon.alt = "Public";
+    } else if (server.name === "Testing MultiBox" || server.name === "Survival Realm") {
+      icon.src = "assets/survival.png";
+      icon.alt = "Survival";
     }
 
     li.appendChild(icon);
