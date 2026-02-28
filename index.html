@@ -16,19 +16,13 @@
     <div class="tab" data-tab="yourservers">Your Servers</div>
   </div>
 
-  <!-- Search Bar -->
-  <div id="searchBarContainer">
-    <input type="text" id="serverSearch" placeholder="Search servers..." />
-  </div>
-
-  <!-- UI Container -->
   <div id="uiContainer">
 
     <!-- SINGLEPLAYER TAB -->
     <div class="tabPanel active" id="singleplayerPanel">
-      <div id="mainPanel">
+      <div class="mainPanel">
         <h2>Singleplayer</h2>
-        <p>Select or create a world to play solo.</p>
+        <p>Create or load your world to play solo.</p>
       </div>
     </div>
 
@@ -37,7 +31,7 @@
       <div id="sidebar">
         <ul id="serverList"></ul>
       </div>
-      <div id="mainPanel">
+      <div class="mainPanel">
         <div id="serverHeader">
           <h2 id="serverName">Select a server</h2>
           <img id="serverIcon" src="" alt="Server Icon">
@@ -61,8 +55,10 @@
 
     <!-- YOUR SERVERS TAB -->
     <div class="tabPanel" id="yourserversPanel">
-      <h2>Your Servers</h2>
-      <p>List of servers you have joined or own will appear here.</p>
+      <div class="mainPanel">
+        <h2>Your Servers</h2>
+        <p>Servers you’ve joined or own will appear here.</p>
+      </div>
     </div>
 
   </div>

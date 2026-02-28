@@ -48,42 +48,11 @@ canvas#renderCanvas {
     color: #66f0ff;
 }
 
-/* ===== SEARCH BAR ===== */
-#searchBarContainer {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: #0d0d0d;
-    border-bottom: 1px solid #00334d;
-    z-index: 9;
-    box-sizing: border-box;
-}
-
-#serverSearch {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px 14px;
-    font-size: 12px;
-    border-radius: 8px;
-    border: 1px solid #33ccff;
-    outline: none;
-    background-color: #1a1a1a;
-    color: #e0f7ff;
-}
-
-#serverSearch:focus {
-    border-color: #66f0ff;
-    box-shadow: 0 0 6px rgba(102, 240, 255, 0.5);
-}
-
 /* ===== UI CONTAINER ===== */
 #uiContainer {
     position: absolute;
-    top: 100px; /* below tabs + search */
+    top: 100px;
     left: 0;
-    display: flex;
     width: 100%;
     height: calc(100% - 100px);
     z-index: 5;
@@ -102,7 +71,7 @@ canvas#renderCanvas {
 }
 
 /* ===== SIDEBAR ===== */
-#sidebar {
+#multiplayerPanel #sidebar {
     width: 220px;
     background-color: #0d0d0d;
     padding: 10px;
@@ -139,7 +108,7 @@ canvas#renderCanvas {
 }
 
 /* ===== MAIN PANEL ===== */
-#mainPanel {
+.mainPanel {
     flex: 1;
     padding: 25px;
     background-color: rgba(10,10,10,0.95);
@@ -177,13 +146,13 @@ canvas#renderCanvas {
 }
 
 /* Input fields */
-#mainPanel label {
+.mainPanel label {
     display: block;
     margin: 12px 0 4px 0;
     font-size: 10px;
 }
 
-#mainPanel input {
+.mainPanel input {
     width: 100%;
     padding: 8px;
     margin-bottom: 6px;
@@ -195,7 +164,7 @@ canvas#renderCanvas {
     font-size: 10px;
 }
 
-#mainPanel input:focus {
+.mainPanel input:focus {
     border-color: #66f0ff;
     box-shadow: 0 0 6px rgba(102, 240, 255, 0.5);
 }
@@ -225,8 +194,8 @@ canvas#renderCanvas {
     background-color: #66f0ff;
 }
 
-/* ===== YOUR SERVERS PANEL ===== */
-#yourserversPanel {
+/* Your Servers Panel */
+#yourserversPanel .mainPanel {
     padding: 20px;
     color: #33ccff;
     font-size: 12px;

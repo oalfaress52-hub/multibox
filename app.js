@@ -2,7 +2,7 @@
 const servers = [
   { name: "Testing MultiBox", type: "Private (invite only)", inviteCode: "AbCdEfGh" },
   { name: "Creative World", type: "Public", inviteCode: "XyZaBcDe" },
-  { name: "Survival Realm", type: "Survival", inviteCode: "MnOpQrSt" }
+  { name: "Survival Realm", type: "Public", inviteCode: "MnOpQrSt" }
 ];
 
 // ===== DOM REFERENCES =====
@@ -10,6 +10,7 @@ const serverList = document.getElementById("serverList");
 const serverName = document.getElementById("serverName");
 const serverType = document.getElementById("serverType");
 const serverIcon = document.getElementById("serverIcon");
+const inviteDisplay = document.getElementById("inviteDisplay");
 const playButton = document.getElementById("playButton");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
@@ -18,38 +19,39 @@ const inviteError = document.getElementById("inviteError");
 const serverSearch = document.getElementById("serverSearch");
 
 const tabs = document.querySelectorAll(".tab");
-const uiContainer = document.getElementById("uiContainer");
+const tabPanels = document.querySelectorAll(".tabPanel");
+
+// ===== TAB SWITCHING =====
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const selected = tab.getAttribute("data-tab");
+    tabPanels.forEach(panel => {
+      panel.classList.toggle("active", panel.id === selected + "Panel");
+    });
+  });
+});
 
 // ===== POPULATE SERVER SIDEBAR =====
 function loadServers(filter = "") {
   serverList.innerHTML = "";
+  const input = filter.trim().toLowerCase();
 
-  const input = filter.trim();
-  let filteredServers = [];
-  const exactMatch = servers.find(s => s.inviteCode.toLowerCase() === input.toLowerCase());
-  if (exactMatch) filteredServers.push(exactMatch);
-  else filteredServers = servers.filter(s => s.name.toLowerCase().includes(input.toLowerCase()));
+  const exactMatch = servers.find(s => s.inviteCode.toLowerCase() === input);
+  const filteredServers = exactMatch ? [exactMatch] :
+    servers.filter(s => s.name.toLowerCase().includes(input));
 
   filteredServers.forEach(server => {
     const li = document.createElement("li");
     li.textContent = server.name;
 
-    // ===== MANUAL ICON ASSIGNMENT =====
     const icon = document.createElement("img");
-    icon.style.width = "16px";
-    icon.style.height = "16px";
-
-    if (server.name === "Creative World") {
-      icon.src = "assets/creative.png";
-      icon.alt = "Creative";
-    } else if (server.name === "Testing MultiBox" || server.name === "Survival Realm") {
-      icon.src = "assets/survival.png";
-      icon.alt = "Survival";
-    }
+    icon.src = server.name === "Creative World" ? "assets/creative.png" : "assets/survival.png";
+    icon.alt = "Server Icon";
 
     li.appendChild(icon);
-
-    li.onclick = () => selectServer(server, icon.src);
+    li.onclick = () => selectServer(server);
     serverList.appendChild(li);
   });
 
@@ -62,20 +64,18 @@ function loadServers(filter = "") {
 }
 
 // ===== SELECT SERVER =====
-function selectServer(server, iconSrc = null) {
+function selectServer(server) {
   serverName.textContent = server.name;
   serverType.textContent = "Server Type: " + server.type;
-
-  if (iconSrc) {
-    serverIcon.src = iconSrc;
-    serverIcon.style.display = "inline";
-  } else {
-    serverIcon.style.display = "none";
-  }
+  serverIcon.src = server.name === "Creative World" ? "assets/creative.png" : "assets/survival.png";
+  serverIcon.style.display = "inline";
+  inviteDisplay.textContent = "Invite Code: " + server.inviteCode;
+  inviteInput.value = server.inviteCode;
+  inviteError.style.display = "none";
 }
 
-// ===== SEARCH FUNCTIONALITY =====
-serverSearch.addEventListener("input", (e) => loadServers(e.target.value));
+// ===== SEARCH FUNCTION =====
+serverSearch.addEventListener("input", e => loadServers(e.target.value));
 
 // ===== PLAY BUTTON =====
 playButton.addEventListener("click", () => {
@@ -83,7 +83,6 @@ playButton.addEventListener("click", () => {
   const password = passwordInput.value.trim();
   const code = inviteInput.value.trim();
 
-  // Validate invite code
   if (!code) {
     inviteError.textContent = "Please enter an invite code.";
     inviteError.style.display = "block";
@@ -95,31 +94,17 @@ playButton.addEventListener("click", () => {
     inviteError.textContent = "Invalid invite code!";
     inviteError.style.display = "block";
     return;
-  } else {
-    inviteError.style.display = "none";
   }
 
-  // Validate username/password
+  inviteError.style.display = "none";
+
   if (!username || !password) {
     alert("Please enter username and password.");
     return;
   }
 
-  // Auto-select server from invite code
   selectServer(matchedServer);
-
   alert(`Logging in as ${username} to ${matchedServer.name}`);
-});
-
-// ===== TAB SWITCHING =====
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    const selected = tab.getAttribute("data-tab");
-    uiContainer.style.display = selected === "multiplayer" ? "flex" : "none";
-  });
 });
 
 // ===== INITIALIZE =====
