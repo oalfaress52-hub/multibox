@@ -1,4 +1,4 @@
-/* Global */
+/* ===== Global ===== */
 html, body {
     width: 100%;
     height: 100%;
@@ -8,7 +8,7 @@ html, body {
     background-color: #e6f2ff;
 }
 
-/* Babylon canvas */
+/* ===== Babylon.js Canvas ===== */
 canvas#renderCanvas {
     position: absolute;
     top: 0;
@@ -19,7 +19,7 @@ canvas#renderCanvas {
     display: block;
 }
 
-/* Tabs */
+/* ===== Top Tabs ===== */
 #tabs {
     position: absolute;
     top: 0;
@@ -31,24 +31,24 @@ canvas#renderCanvas {
     z-index: 10;
 }
 
-    #tabs .tab {
-        padding: 12px 20px;
-        cursor: pointer;
-        font-weight: bold;
-        color: #2277cc;
-        transition: background 0.2s;
-    }
+#tabs .tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2277cc;
+    transition: background 0.2s;
+}
 
-        #tabs .tab:hover {
-            background-color: #b3d9ff;
-        }
+#tabs .tab:hover {
+    background-color: #b3d9ff;
+}
 
-        #tabs .tab.active {
-            border-bottom: 3px solid #0055aa;
-            color: #0055aa;
-        }
+#tabs .tab.active {
+    border-bottom: 3px solid #0055aa;
+    color: #0055aa;
+}
 
-/* Search Bar */
+/* ===== Search Bar ===== */
 #searchBarContainer {
     position: absolute;
     top: 50px;
@@ -72,15 +72,15 @@ canvas#renderCanvas {
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-    #serverSearch:focus {
-        border-color: #3399ff;
-        box-shadow: 0 0 6px rgba(51, 153, 255, 0.4);
-    }
+#serverSearch:focus {
+    border-color: #3399ff;
+    box-shadow: 0 0 6px rgba(51, 153, 255, 0.4);
+}
 
-/* UI Container */
+/* ===== UI Container ===== */
 #uiContainer {
     position: absolute;
-    top: 100px;
+    top: 100px; /* below tabs + search */
     left: 0;
     display: flex;
     width: 100%;
@@ -88,7 +88,7 @@ canvas#renderCanvas {
     z-index: 5;
 }
 
-/* Sidebar */
+/* ===== Sidebar ===== */
 #sidebar {
     width: 200px;
     background-color: #e6f2ff;
@@ -103,18 +103,18 @@ canvas#renderCanvas {
     margin: 0;
 }
 
-    #serverList li {
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
+#serverList li {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
 
-        #serverList li:hover {
-            background-color: #b3d9ff;
-        }
+#serverList li:hover {
+    background-color: #b3d9ff;
+}
 
-/* Main Panel */
+/* ===== Main Panel ===== */
 #mainPanel {
     flex: 1;
     padding: 20px;
@@ -123,17 +123,18 @@ canvas#renderCanvas {
     border-radius: 5px;
 }
 
-    #mainPanel label {
-        display: block;
-        margin: 8px 0;
-    }
+#mainPanel label {
+    display: block;
+    margin: 8px 0;
+}
 
-    #mainPanel input {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-    }
+#mainPanel input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
 
+/* ===== Play Button ===== */
 #playButton {
     margin-top: 10px;
     padding: 8px 20px;
@@ -144,6 +145,15 @@ canvas#renderCanvas {
     cursor: pointer;
 }
 
-    #playButton:hover {
-        background-color: #2277cc;
-    }
+#playButton:hover {
+    background-color: #2277cc;
+}
+
+/* ===== Survival Icon Next to Server Name ===== */
+#serverName img,
+#serverType img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle; /* aligns icon with text */
+    margin-left: 8px;
+}
