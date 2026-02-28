@@ -3,7 +3,7 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    font-family: 'Press Start 2P', cursive; /* Pixel/gaming font */
+    font-family: 'Press Start 2P', cursive; /* Pixel font only */
     overflow: hidden;
     background-color: #1a1a1a;
     color: #f0f0f0;
