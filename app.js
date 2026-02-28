@@ -34,19 +34,28 @@ function loadServers(filter = "") {
     const li = document.createElement("li");
     li.textContent = server.name;
 
+    // ===== ICON FOR ALL SERVER TYPES =====
+    const icon = document.createElement("img");
+    icon.style.width = "16px";
+    icon.style.height = "16px";
+
     if (server.type.toLowerCase().includes("survival")) {
-      const icon = document.createElement("img");
       icon.src = "assets/survival.png";
       icon.alt = "Survival";
-      li.appendChild(icon);
     } else if (server.type.toLowerCase().includes("creative")) {
-      const icon = document.createElement("img");
       icon.src = "assets/creative.png";
       icon.alt = "Creative";
-      li.appendChild(icon);
+    } else if (server.type.toLowerCase().includes("private")) {
+      icon.src = "assets/private.png"; // Add private.png to assets
+      icon.alt = "Private";
+    } else {
+      icon.src = "assets/public.png"; // Add public.png to assets
+      icon.alt = "Public";
     }
 
-    li.onclick = () => selectServer(server);
+    li.appendChild(icon);
+
+    li.onclick = () => selectServer(server, icon.src);
     serverList.appendChild(li);
   });
 
@@ -59,22 +68,19 @@ function loadServers(filter = "") {
 }
 
 // ===== SELECT SERVER =====
-function selectServer(server) {
+function selectServer(server, iconSrc = null) {
   serverName.textContent = server.name;
   serverType.textContent = "Server Type: " + server.type;
 
-  if (server.type.toLowerCase().includes("survival")) {
-    serverIcon.src = "assets/survival.png";
-    serverIcon.style.display = "inline";
-  } else if (server.type.toLowerCase().includes("creative")) {
-    serverIcon.src = "assets/creative.png";
+  if (iconSrc) {
+    serverIcon.src = iconSrc;
     serverIcon.style.display = "inline";
   } else {
     serverIcon.style.display = "none";
   }
 }
 
-// ===== SEARCH =====
+// ===== SEARCH FUNCTIONALITY =====
 serverSearch.addEventListener("input", (e) => loadServers(e.target.value));
 
 // ===== PLAY BUTTON =====
@@ -105,7 +111,9 @@ playButton.addEventListener("click", () => {
     return;
   }
 
+  // Auto-select server from invite code
   selectServer(matchedServer);
+
   alert(`Logging in as ${username} to ${matchedServer.name}`);
 });
 
@@ -114,6 +122,7 @@ tabs.forEach(tab => {
   tab.addEventListener("click", () => {
     tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
+
     const selected = tab.getAttribute("data-tab");
     uiContainer.style.display = selected === "multiplayer" ? "flex" : "none";
   });
