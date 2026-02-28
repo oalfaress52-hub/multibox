@@ -26,9 +26,16 @@ tabs.forEach(tab => {
   tab.addEventListener("click", () => {
     tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
+
     const selected = tab.getAttribute("data-tab");
     tabPanels.forEach(panel => {
-      panel.classList.toggle("active", panel.id === selected + "Panel");
+      if(panel.id === selected + "Panel") {
+        panel.classList.add("active");
+        panel.style.display = "flex";
+      } else {
+        panel.classList.remove("active");
+        panel.style.display = "none";
+      }
     });
   });
 });
