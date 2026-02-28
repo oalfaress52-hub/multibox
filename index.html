@@ -8,14 +8,14 @@
 </head>
 <body>
 
-  <!-- Top Tabs -->
+  <!-- ===== TOP TABS ===== -->
   <div id="tabs">
     <div class="tab" data-tab="singleplayer">Singleplayer</div>
     <div class="tab active" data-tab="multiplayer">Multiplayer</div>
     <div class="tab" data-tab="settings">Settings</div>
   </div>
 
-  <!-- Search Bar -->
+  <!-- ===== SEARCH BAR ===== -->
   <div id="searchBarContainer">
     <input 
       type="text" 
@@ -24,23 +24,28 @@
     />
   </div>
 
-  <!-- UI Container -->
+  <!-- ===== MAIN UI ===== -->
   <div id="uiContainer">
+
     <!-- Sidebar -->
     <div id="sidebar">
-      <ul id="serverList">
-        <!-- Servers populated by JS -->
-      </ul>
+      <ul id="serverList"></ul>
     </div>
 
     <!-- Main Panel -->
     <div id="mainPanel">
-      <h2 id="serverName">
-        Select a server
-        <img id="serverIcon" src="assets/survival.png" alt="Survival" style="display:none; width:24px; height:24px; margin-left:8px; vertical-align:middle;">
+
+      <h2 id="serverHeader">
+        <span id="serverName">Select a server</span>
+        <img id="serverIcon" src="" alt="" />
       </h2>
+
       <p id="serverType"></p>
-      <p id="inviteCode"></p>
+
+      <label for="inviteInput">Invite Code:</label>
+      <input type="text" id="inviteInput" maxlength="8">
+
+      <p id="inviteError"></p>
 
       <label for="username">Username:</label>
       <input type="text" id="username">
@@ -49,14 +54,15 @@
       <input type="password" id="password">
 
       <button id="playButton">Play</button>
+
     </div>
   </div>
 
-  <!-- Babylon.js Canvas -->
+  <!-- ===== BABYLON CANVAS ===== -->
   <canvas id="renderCanvas"></canvas>
 
-  <!-- Scripts -->
   <script src="app.js"></script>
   <script type="module" src="../src/main.js"></script>
+
 </body>
 </html>
