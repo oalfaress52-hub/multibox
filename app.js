@@ -12,7 +12,7 @@ const servers = [
   },
   {
     name: "Survival Realm",
-    type: "Public",
+    type: "Survival",
     inviteCode: "N/A"
   }
 ];
@@ -26,6 +26,7 @@ const playButton = document.getElementById("playButton");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const serverSearch = document.getElementById("serverSearch");
+const serverIcon = document.getElementById("serverIcon"); // main panel icon
 
 const tabs = document.querySelectorAll(".tab");
 const uiContainer = document.getElementById("uiContainer");
@@ -41,6 +42,18 @@ function loadServers(filter = "") {
   filteredServers.forEach(server => {
     const li = document.createElement("li");
     li.textContent = server.name;
+
+    // Add small survival icon if server type includes "survival"
+    if (server.type.toLowerCase().includes("survival")) {
+      const icon = document.createElement("img");
+      icon.src = "assets/survival.png";
+      icon.alt = "Survival";
+      icon.style.width = "16px";
+      icon.style.height = "16px";
+      icon.style.marginLeft = "5px";
+      li.appendChild(icon);
+    }
+
     li.onclick = () => selectServer(server);
     serverList.appendChild(li);
   });
@@ -58,6 +71,13 @@ function selectServer(server) {
   serverName.textContent = server.name;
   serverType.textContent = "Server Type: " + server.type;
   inviteCode.textContent = "Invite Code: " + server.inviteCode;
+
+  // Show/hide main panel survival icon
+  if (server.type.toLowerCase().includes("survival")) {
+    serverIcon.style.display = "inline";
+  } else {
+    serverIcon.style.display = "none";
+  }
 }
 
 // ===== SEARCH FUNCTIONALITY =====
