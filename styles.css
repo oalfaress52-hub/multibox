@@ -126,7 +126,9 @@ html, body {
 #serverSearch:focus { border-color: #00ffcc; box-shadow: 0 0 6px rgba(0,255,204,0.5); }
 
 #sidebar {
-    width: 220px;
+    width: 320px;   /* stretched server list */
+    min-width: 300px;
+    max-width: 360px; {
     background-color: #0d0d0d;
     padding: 10px;
     overflow-y: auto;
