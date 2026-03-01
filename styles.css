@@ -1,26 +1,25 @@
 /* ================= GLOBAL ================= */
 
 html, body {
-    width: 100%;
     height: 100%;
     margin: 0;
     font-family: 'Press Start 2P', cursive;
     background-color: #141414;
     color: #f0f0f0;
-    overflow: hidden;
+}
+
+/* Root layout: column (tabs on top, content below) */
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 /* ================= TABS ================= */
 
 #tabs {
     display: flex;
-    width: 100%;
     background-color: #0d0d0d;
     border-bottom: 3px solid #00ccff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
 }
 
 .tab {
@@ -43,11 +42,8 @@ html, body {
 
 .tabPanel {
     display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 60px);
+    flex: 1;
+    height: 100%;
 }
 
 .tabPanel.active {
@@ -58,14 +54,13 @@ html, body {
 
 #singleplayerUI {
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex: 1;
 }
 
 #worldListContainer {
     width: 350px;
     background-color: #0d0d0d;
-    padding: 15px;
+    padding: 20px;
     border-right: 1px solid #00334d;
     overflow-y: auto;
 }
@@ -85,16 +80,10 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.2s;
 }
 
 #worldList li:hover {
     background-color: #00334d;
-}
-
-#worldList img {
-    width: 16px;
-    height: 16px;
 }
 
 #worldInfo {
@@ -103,27 +92,22 @@ html, body {
     background-color: rgba(10,10,10,0.95);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 #worldName {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
-
-/* Power Button */
 
 #powerButton {
     width: 48px;
     height: 48px;
-    background: url('assets/power-red.png') center center no-repeat;
+    background: url('assets/power-red.png') center no-repeat;
     background-size: contain;
     border: none;
     cursor: pointer;
     margin-bottom: 20px;
 }
-
-/* Play World */
 
 #playWorldButton {
     padding: 12px 28px;
@@ -133,7 +117,6 @@ html, body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 10px;
-    transition: 0.2s;
 }
 
 #playWorldButton:hover {
@@ -144,23 +127,21 @@ html, body {
 
 #multiplayerUI {
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex: 1;
 }
 
 /* Sidebar */
 
 #sidebarSection {
-    width: 400px;
-    min-width: 400px;
+    width: 380px;
     background-color: #0d0d0d;
-    padding: 20px;
     border-right: 1px solid #00334d;
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
-/* Search */
+/* Search (fixed — now inside flex column properly) */
 
 #searchBarContainer {
     margin-bottom: 20px;
@@ -174,15 +155,14 @@ html, body {
     background-color: #1a1a1a;
     color: #f0f0f0;
     font-size: 10px;
-    outline: none;
 }
 
 #serverSearch:focus {
     border-color: #00ffcc;
-    box-shadow: 0 0 6px rgba(0,255,204,0.5);
+    box-shadow: 0 0 6px rgba(0,255,204,0.4);
 }
 
-/* Server List */
+/* Server list fills remaining sidebar space */
 
 #serverList {
     list-style: none;
@@ -193,7 +173,7 @@ html, body {
 }
 
 #serverList li {
-    padding: 14px 16px;
+    padding: 14px;
     border-radius: 8px;
     cursor: pointer;
     background-color: #1a1a1a;
@@ -201,7 +181,6 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.2s;
 }
 
 #serverList li:hover {
@@ -213,7 +192,7 @@ html, body {
     height: 18px;
 }
 
-/* Main Panel */
+/* Main panel fills remaining width */
 
 #mainPanel {
     flex: 1;
@@ -224,8 +203,8 @@ html, body {
 #serverName {
     display: flex;
     align-items: center;
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 #serverIcon {
@@ -256,12 +235,10 @@ html, body {
     background-color: #1a1a1a;
     color: #f0f0f0;
     font-size: 10px;
-    outline: none;
 }
 
 #mainPanel input:focus {
     border-color: #00ffcc;
-    box-shadow: 0 0 6px rgba(0,255,204,0.5);
 }
 
 #inviteError {
@@ -270,8 +247,6 @@ html, body {
     margin-top: 4px;
     display: none;
 }
-
-/* Play Button */
 
 #playButton {
     margin-top: 18px;
@@ -282,7 +257,6 @@ html, body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 10px;
-    transition: 0.2s;
 }
 
 #playButton:hover {
