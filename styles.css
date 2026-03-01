@@ -40,7 +40,6 @@ html, body {
     left: 0;
     width: 100%;
     height: calc(100% - 50px);
-    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -108,7 +107,7 @@ html, body {
 #playWorldButton:hover { background-color: #00ffcc; }
 
 /* ===== MULTIPLAYER UI ===== */
-#multiplayerUI { display: flex; width: 100%; height: 100%; }
+#multiplayerUI { display: flex; flex-direction: row; width: 100%; height: 100%; }
 
 #searchBarContainer { width: 100%; padding-bottom: 10px; }
 #serverSearch {
@@ -126,13 +125,12 @@ html, body {
 #serverSearch:focus { border-color: #00ffcc; box-shadow: 0 0 6px rgba(0,255,204,0.5); }
 
 #sidebar {
-    width: 320px;   /* stretched server list */
-    min-width: 300px;
-    max-width: 360px; 
+    width: 360px;
+    min-width: 360px;
     background-color: #0d0d0d;
-    padding: 10px;
-    overflow-y: auto;
+    padding: 15px;
     border-right: 1px solid #00334d;
+    overflow-y: auto;
 }
 
 #serverList { list-style: none; padding:0; margin:0; }
@@ -152,7 +150,6 @@ html, body {
 #mainPanel {
     flex: 1;
     padding: 20px;
-    margin-left: 10px;
     border-radius: 6px;
     background-color: rgba(10,10,10,0.95);
 }
