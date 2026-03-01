@@ -128,7 +128,7 @@ html, body {
 #sidebar {
     width: 320px;   /* stretched server list */
     min-width: 300px;
-    max-width: 360px; {
+    max-width: 360px; 
     background-color: #0d0d0d;
     padding: 10px;
     overflow-y: auto;
